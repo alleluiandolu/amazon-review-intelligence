@@ -23,6 +23,49 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown("""
+<style>
+/* White sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E5E7EB;
+}
+
+/* Sidebar text */
+section[data-testid="stSidebar"] * {
+    color: #1F2937;
+}
+
+/* Sidebar navigation labels */
+section[data-testid="stSidebar"] label {
+    color: #1F2937 !important;
+}
+
+/* Sidebar radio selection */
+section[data-testid="stSidebar"] [role="radiogroup"] label {
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+/* Selected radio indicator */
+section[data-testid="stSidebar"] input[type="radio"] {
+    accent-color: #FF9900;
+}
+
+/* Sidebar divider */
+section[data-testid="stSidebar"] hr {
+    border-color: #E5E7EB;
+}
+
+/* Main dashboard remains dark */
+[data-testid="stAppViewContainer"] {
+    background-color: #0E1117;
+    color: #F9FAFB;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 BASE = Path(__file__).resolve().parent
 
 COLORS = {
@@ -1167,19 +1210,15 @@ if logo_path.exists():
 
 st.sidebar.markdown("### Amazon Review Intelligence")
 st.sidebar.caption("Big Data Analytics Dashboard")
+st.sidebar.divider()
 
-
-st.markdown("### Welcome to Amazon Review Intelligence")
-st.write(
+st.sidebar.markdown("### Welcome to Amazon Review Intelligence")
+st.sidebar.write(
     "Explore customer reviews, product performance, "
     "sentiment classification, graph analytics, and "
     "business intelligence insights through an "
     "interactive analytics dashboard."
 )
-
-st.sidebar.divider()
-
-
 
 page = st.sidebar.radio(
     "Navigation",
