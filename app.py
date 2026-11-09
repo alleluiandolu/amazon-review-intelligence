@@ -2,6 +2,7 @@
 import re
 from pathlib import Path
 
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -1158,9 +1159,27 @@ PAGES = {
     "Business Intelligence Insights": page_business
 }
 
-st.sidebar.title("📊 Amazon Intelligence")
+# SIDEBAR
+logo_path = Path(__file__).resolve().parent / "logo.png"
+
+if logo_path.exists():
+    st.sidebar.image(str(logo_path), width=165)
+
+st.sidebar.markdown("### Amazon Review Intelligence")
 st.sidebar.caption("Big Data Analytics Dashboard")
+
+
+st.markdown("### Welcome to Amazon Review Intelligence")
+st.write(
+    "Explore customer reviews, product performance, "
+    "sentiment classification, graph analytics, and "
+    "business intelligence insights through an "
+    "interactive analytics dashboard."
+)
+
 st.sidebar.divider()
+
+
 
 page = st.sidebar.radio(
     "Navigation",
