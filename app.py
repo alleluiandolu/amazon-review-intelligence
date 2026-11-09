@@ -708,7 +708,7 @@ def draw_network(
 # PAGE 4 - GRAPH ANALYTICS
 # ============================================================
 
-elif page == "Graph Analytics":
+if page == "Graph Analytics":
 
     st.title("🕸️ Graph Analytics")
     st.caption(
